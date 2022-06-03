@@ -1,5 +1,5 @@
 # June_SECDSM_CTF
-Write up for the June edition of the SecDSM mini-CTF event.
+Write up for the 2022 June edition of the SecDSM mini-CTF event.
 
 ## Challenge
 Given the following punch card, figure out what the flag is.
