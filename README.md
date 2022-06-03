@@ -12,12 +12,10 @@ Challenge created by _@ArchMafia_
 I already know that we're working with a punch card, but is there any other information that I can glean from the provided card?  In fact, there was.  On the left-hand side, the punch card has some identifying information on where it was made:
 ![step 1](https://user-images.githubusercontent.com/101227395/171699951-93de0fe3-a316-48c6-a7dc-f229e0f8b30d.jpg)
 
-Performing a search with the following key terms _masswerk punch card reader_ led me to the site, https://www.masswerk.at/cardreader/.
+Performing a search with the following key terms _masswerk punch card reader_ led me to the site https://www.masswerk.at/cardreader/.
 
 ### Step 2
-Tried to upload the image provided for this challenge, but an error message stating: **"Sorry, this file doesn't look like a punch card created with the Virtual Keypunch."**  Hmmm, maybe I should try changing the picture format from '.png' to '.jpeg'?
-
-No luck, the error persists.  Looks like this was going to be a little harder than I thought.
+Tried to upload the image provided for this challenge, but got an error message stating **"Sorry, this file doesn't look like a punch card created with the Virtual Keypunch."**  Hmmm, maybe I should try changing the picture format from '.png' to '.jpeg'?  No luck, the error persists.  Looks like this was going to be a little harder than I thought.
 
 ### Step 3
 After doing some additional searching and getting nowhere with other online punch card readers, I decided to try my hand at figuring this out through trial and error.  Luckily, the previously mentioned cardreader site had a link to [The Virutal Keypunch](https://www.masswerk.at/keypunch/).  Now it was time to RTFM and figure out what the punch card was telling me.
@@ -28,19 +26,19 @@ After LOTS of trial and error, I was able to recreate the punch card and get the
 
 
 ### Step 5
-Tried throwing the output into [CyberChef](https://gchq.github.io/CyberChef/), nothing tangible is returned.  Magic didn't give me anything either.  Could it be something else?  Does this exist somewhere else on the internets?
+Tried throwing the output into [CyberChef](https://gchq.github.io/CyberChef/), nothing tangible is returned.  Could it be something else?  Does this exist somewhere else on the internets?
 
 ### Step 6
-Ran a search for 'C3F0B5E5CD487A099FE6869A906CEDC4' via Google, which gave me back an interesting result from the site md5hashing[.]net.  Well, that makes sense.  32 characters, looks like hex.  Let's throw it at [Crackstation](https://crackstation.net/) and see if it's already been solved.  I wonder what it might say...
+Ran a search for 'C3F0B5E5CD487A099FE6869A906CEDC4' via Google, which gave me back an interesting result from the site md5hashing[.]net.  Well, that makes sense.  32 characters, looks like hex.  Ok, let's throw it in [Crackstation](https://crackstation.net/) and see if it's already been solved.  I wonder what it might say...
 ![image](https://user-images.githubusercontent.com/101227395/171735964-fcbdcfbc-20ff-4953-a74e-d32abb1b2a14.png)
 
 ![throwing-phone](https://user-images.githubusercontent.com/101227395/171748159-024d93c3-1351-48e7-b8c1-f9892eff376a.gif)
 
 
 ### Step 7... or Step 2 Part 2?
-At this point, I took a break and happened to dilly dally in the SecDSM Discord channel (*cough* which you can join here: https://discord.com/invite/aqcDKzVYw3 *cough*).  Got a tip off that the image may not be it's cracked up to be.  Someone is running Strings against the image?  Well why would you do that...
+At this point, I took a break and happened to dilly dally in the SecDSM Discord channel (*cough* which you can join here: https://discord.com/invite/aqcDKzVYw3 *cough*).  Got a tip off that the image may not be all it's cracked up to be.  Someone is running `atrings` against the image?  Well why would you do that...
 
-Using the fantastic site https://aperisolve.fr/, I uploaded the original image to see what kind of shenanigans that _@ArchMafia_ might be up to.  Enabling all of the options other then *'I've got a password!'*, I saw something reallllllyyyy interesting in the strings output: ***prettycolors.png***.  Is this a **STEGO CHALLENGE?!**  Dope!
+Using the fantastic site https://aperisolve.fr/, I uploaded the punch card image to see what kind of shenanigans that _@ArchMafia_ might be up to.  Enabling all of the options other than *'I've got a password!'*, I saw something reallllllyyyy interesting at the bottom of the strings output: ***prettycolors.png***.  Is this a **STEGO CHALLENGE?!**  Dope!
 
 ### Step 8
 Thanks to aperisolve doing all of the heavy lifting for me, I was able to extract another image:
@@ -49,8 +47,9 @@ Thanks to aperisolve doing all of the heavy lifting for me, I was able to extrac
 Well, the file name is right, it does have some pretty colors...  But what do I do with- \*gestures wildly\*- *this*?  
 
 ### Step 9
-I try running the prettycolors image through aperisolve as well.  Nothing of value is returned.  I felt like I was getting nowhere with this new picture, so I went back and checked a few things from the original image.  2 items stuck out to me upon further review:
+I try running prettycolors.png through aperisolve as well.  Nothing of value is returned.  I felt like I was getting nowhere with this new picture, so I went back and checked a few things from the original image.  
 
+2 items stuck out to me upon further review:
 1) The strings contained a weird block of code: 
 `+++++ +++[- >++++ ++++< ]>+++ +++++ ++++. <++++ +[->+ ++++< ]>.<+ +++++
 ++[-> ----- ---<] >---- -.<++ +++[- >++++ +<]>+ +++++ ++++. <++++ ++[->
@@ -78,17 +77,19 @@ These are definitely something.  I now have a pretty colors picture, some weird 
 
 ### Step 10
 Running the Brainf*** through one of the *many* online interpreters- in this case, I used https://www.dcode.fr - gives me the following output: `Le Chiffre Indechiffrable: 
-sffhym{kv-xmos-b-idqj-os-kv-my-rfdp}`.  I'll save that for now, cause we'll definitely need to decode that later, as it definitely looks like cipher text.  With the French in there, I'm guessing Vignere.  
+sffhym{kv-xmos-b-idqj-os-kv-my-rfdp}`.  I'll save that for now, cause we'll definitely need to decode that later, as it most assuredly looks like cipher text.  With the French in there, I'm guessing Vignere.  
 
 ### Step 11
-Running the text from 'getphreaky.txt' through [dcode.fr's cipher identifier](https://www.dcode.fr/cipher-identifier) gives me a clue that it is a ROT-47 cipher.  Classic.  This turns out to be an encoded URL - https://www.mediafire.com/file/j9rq4602g03xgaq/captaincrunch.wav/file, which as you might guess, leads me to a audio file with some rapid dial tones.  
+Running the text from getphreaky.txt through [dcode.fr's cipher identifier](https://www.dcode.fr/cipher-identifier) gives me a clue that it is a ROT-47 cipher.  Classic.  This turns out to be an encoded URL - https://www.mediafire.com/file/j9rq4602g03xgaq/captaincrunch.wav/file, which as you might guess, leads me to a audio file with some rapid dial tones.  
 
 ### Step 12
-The captiancrunch.wav has a lot of dial tones hit EXTREMELY rapidly.  I used http://dialabc.com/sound/detect/index.html to break it down into its associated values, resulting in `3#66#8#77#8#4#3#2#22#66#88#33#6#4#3#3#55#3#2#9#44#2#8#22#66#8#55#3#44#2#3` or `3 66 8 77 8 4 3 2 22 66 88 33 6 4 3 3 55 3 2 9 44 2 8 22 66 8 55 3 44 2 3` without the pound signs/hashes.  Using dcode.fr again, the string of numbers is turned into..... `DNTQTGDABNUEMGDDKDAWHATBNTKDHAD`.
+The captiancrunch.wav has a lot of dial tones go by EXTREMELY rapidly.  I used http://dialabc.com/sound/detect/index.html to break it down into its associated values, resulting in `3#66#8#77#8#4#3#2#22#66#88#33#6#4#3#3#55#3#2#9#44#2#8#22#66#8#55#3#44#2#3` or `3 66 8 77 8 4 3 2 22 66 88 33 6 4 3 3 55 3 2 9 44 2 8 22 66 8 55 3 44 2 3` without the pound signs/hashes.  Using dcode.fr again, the string of numbers is turned into..... `DNTQTGDABNUEMGDDKDAWHATBNTKDHAD`.
 
 ![image](https://user-images.githubusercontent.com/101227395/171784657-13568455-142e-4df6-bc16-84b51c23a5d7.png)
 
-Anyways, taking another look at the .wav file in Audacity, it looks like there may be some items I'm missing.  I try another site to translate the Dual-Tone Multi-Frequency (DTMF) signal, specifically https://unframework.github.io/dtmf-detect/#/.  From that, I get something similar, but just different enough:  `333#666#88#777#8#44#33#2#22#666#888#33#6#444#3#3#555#33#222#9#44#2#8#222#666#88#555#3#444#22#33`.  Okay, what does dcode give me now?
+Anyways, taking another look at the .wav file in Audacity, it looks like there may be some items I'm missing.  I try another site to translate the Dual-Tone Multi-Frequency (DTMF) signal, specifically https://unframework.github.io/dtmf-detect/#/.  From that, I get something similar, but just different enough:  `333#666#88#777#8#44#33#2#22#666#888#33#6#444#3#3#555#33#222#9#44#2#8#222#666#88#555#3#444#22#33`.  In order to capture this new string of numbers, I had to inspect the page, look at the specific field that was being filled in by numbers, then copy those numbers before they cleared away after 5 seconds.  :/  
+
+Well I got it.  Okay, what does dcode give me now?
 
 *FOURTHEABOVEMIDDLECWHATCOULDIBE*
 
