@@ -97,6 +97,7 @@ Progress!
 
 ### Step 13
 After thinking back on some of what the CTF master said about this challenge, _@ArchMafia_ stated that their inspiration came from some CTF Write Ups for other events.  I haven't touched the prettycolors.png in a while, so I tried doing a reverse image search using Google and using the search teram 'CTF Write Up'.  The very first image result that came back looked SUPER SIMILIAR to the image we had pulled out of the punch card.  Once we've clicked on that first image, lo and behold we have a name for this color scheme: **Hexahue**.
+![image](https://user-images.githubusercontent.com/101227395/171888497-ae465709-db77-4c5e-8136-0d87f89608d8.png)
 
 Using https://www.boxentriq.com/code-breaking/hexahue, I decode the pretty colors and got the message "A SEGMENT OF 8 IS UNDOUBTEDLY GREAT.  BUT A SEGMENT OF 7 WILL OPEN THE GATE..."   Sounds ominous...  And maybe there is something else out there in some other CTF Write Ups about the numbers in Step 12.
 
