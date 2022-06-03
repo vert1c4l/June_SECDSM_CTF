@@ -40,7 +40,7 @@ Ran a search for 'C3F0B5E5CD487A099FE6869A906CEDC4' via Google, which gave me ba
 ### Step 7... or Step 2 Part 2?
 At this point, I took a break and happened to dilly dally in the SecDSM Discord channel (*cough* which you can join here: https://discord.com/invite/aqcDKzVYw3 *cough*).  Got a tip off that the image may not be it's cracked up to be.  Someone is running Strings against the image?  Well why would you do that...
 
-Using the fantastic site https://aperisolve.fr/, I uploaded the original image to see what kind of shenanigans that `@ArchMafia` might be up to.  Enabling all of the options other then *'I've got a password!'*, I saw something reallllllyyyy interesting in the strings output: ***prettycolors.png***.  Is this a **STEGO CHALLENGE?!**  Dope!
+Using the fantastic site https://aperisolve.fr/, I uploaded the original image to see what kind of shenanigans that _@ArchMafia_ might be up to.  Enabling all of the options other then *'I've got a password!'*, I saw something reallllllyyyy interesting in the strings output: ***prettycolors.png***.  Is this a **STEGO CHALLENGE?!**  Dope!
 
 ### Step 8
 Thanks to aperisolve doing all of the heavy lifting for me, I was able to extract another image:
@@ -95,7 +95,7 @@ Anyways, taking another look at the .wav file in Audacity, it looks like there m
 Progress!
 
 ### Step 13
-After thinking back on some of what the CTF master said about this challenge, he stated that their inspiration came from some CTF Write Ups for other events.  I haven't touched the prettycolors.png in a while, so I tried doing a reverse image search using Google and using the search teram 'CTF Write Up'.  The very first image result back looked SUPER SIMILIAR to the image we had pulled out of the punch card.  And lo and behold, we have a name for this color scheme: **Hexahue**.
+After thinking back on some of what the CTF master said about this challenge, _@ArchMafia_ stated that their inspiration came from some CTF Write Ups for other events.  I haven't touched the prettycolors.png in a while, so I tried doing a reverse image search using Google and using the search teram 'CTF Write Up'.  The very first image result that came back looked SUPER SIMILIAR to the image we had pulled out of the punch card.  Once we've clicked on that first image, lo and behold we have a name for this color scheme: **Hexahue**.
 
 Using https://www.boxentriq.com/code-breaking/hexahue, I decode the pretty colors and got the message "A SEGMENT OF 8 IS UNDOUBTEDLY GREAT.  BUT A SEGMENT OF 7 WILL OPEN THE GATE..."   Sounds ominous...  And maybe there is something else out there in some other CTF Write Ups about the numbers in Step 12.
 
